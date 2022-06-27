@@ -1,30 +1,33 @@
 <script lang="ts">
-	export let name: string;
+	import Header from "./components/Header.svelte";
+	import Content from "./components/Content.svelte";
+	import Footer from "./components/Footer.svelte";
+	import Loader from "./components/Loader.svelte";
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+
+<Header />
+<Content>
+	<Loader />
+</Content>
+<Footer />
+
+
+
+<style lang="scss">
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+	:global(html) {
+		height: 100%;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+	:global(body) {
+		display: flex;
+		flex-direction: column;
+		min-height: 100%;
+		margin: 0;
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		font-family: "Noto Sans KR";
 	}
 </style>
