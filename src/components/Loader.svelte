@@ -241,6 +241,22 @@
         margin-top: 64px;
         overflow: hidden;
 
+        @keyframes opacity {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.75;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        animation: opacity 2s infinite;
+
         > li {
             &:not(:first-child) {
                 margin-top: 96px;
@@ -264,13 +280,12 @@
         flex-direction: row;
 
         > li {
-            width: 120px;
             height: 24px;
 
             flex: none;
 
             border-radius: 12px;
-            background: black;
+            background-color: black;
 
             opacity: 0.1;
 
