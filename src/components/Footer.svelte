@@ -46,6 +46,12 @@
         span {
             font-size: 16px;
 
+            @media all and (max-width: 480px) {
+                & {
+                    font-size: 14px;
+                }
+            }
+
             &:not(:first-child)::before {
                 margin: 0 8px;
                 content: "|";

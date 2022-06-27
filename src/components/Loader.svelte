@@ -74,7 +74,7 @@
             delay,
             duration,
             css: (t: number) => `
-                width: ${32 + t * (w - 32)}px;
+                width: ${24 + t * (w - 24)}px;
                 opacity: ${t * o};
             `
         };
@@ -163,7 +163,7 @@
                                         {@const fadeOutDelay = fadeInDelay / 2}
 
                                         <li
-                                            style:width="{line * 32}px"
+                                            style:width="{line * 24}px"
 
                                             in:fadeIn={{
                                                 delay: fadeInDelay,
@@ -213,16 +213,33 @@
         cursor: pointer;
     }
 
+    .container {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow-y: auto;
+    }
+
     .description {
+        flex: none;
+
         color: #acacac;
         font-size: 32px;
         user-select: none;
+
+        @media all and (max-width: 480px) {
+            & {
+                font-size: 24px;
+            }
+        }
     }
 
     .outers {
-        height: 440px;
+        flex: 0 1 440px;
         margin-top: 64px;
-        overflow-x: hidden;
+        overflow: hidden;
 
         > li {
             &:not(:first-child) {
@@ -248,26 +265,27 @@
 
         > li {
             width: 120px;
-            height: 32px;
+            height: 24px;
 
             flex: none;
 
-            border-radius: 16px;
+            border-radius: 12px;
             background: black;
 
             opacity: 0.1;
 
             &:not(:first-child) {
-                margin-left: 32px;
+                margin-left: 24px;
             }
         }
     }
 
     .reloader {
+        flex: none;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 32px;
+        margin-top: 24px;
 
         p {
             color: #808080;
